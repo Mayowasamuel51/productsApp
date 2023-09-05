@@ -1,6 +1,7 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Typography } from "@mui/material";
-
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { Link } from "react-router-dom";
 function List({ list }) {
     return (
         <div className="d-flex flex-wrap justify-content-space-around" >
@@ -8,12 +9,21 @@ function List({ list }) {
                 return (
                     <Card sx={{ maxWidth: 245 }} key={index} className="m-4">
                         <CardActionArea>
-                            <CardMedia
+                            <LazyLoadImage
+                                alt={`IMAGE NOT FOUND OR NOT LOADED`}
+                                height={195}
+                                src={item.images[0]}
+                                placeholderSrc="black-and-white"
+                                effect="blur"
+                                opacity={1.2}
+                                // width={245}
+                            />
+                            {/* <CardMedia
                                 component="img"
                                 height="195"
                                 image={item.images[0]}
                                 alt="green iguana"
-                            />
+                            /> */}
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                     {item.title}
@@ -32,9 +42,9 @@ function List({ list }) {
 
                         </CardActionArea>
                         <CardActions>
-                            <Button size="small" color="primary">
+                            <Link size="small"  to={`/products/${item.id}`} color="primary">
                                 more
-                            </Button>
+                            </Link>
                         </CardActions>
                     </Card>
                 )

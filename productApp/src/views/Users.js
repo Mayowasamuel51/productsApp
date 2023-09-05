@@ -22,6 +22,8 @@ function Users() {
             setLoader(false)  // remove the true 
             setError("")
             console.log(data.users)
+
+        
         } catch (err) {
             console.log(err.message)
             setError(err.message) /// set the error state 
@@ -33,7 +35,7 @@ function Users() {
     return (
         <div className="container ">   
             {loader && <h2>Loading users.......</h2>}
-            {!loader &&   <UsersImage list={data} />}
+            {/* {!loader &&   <UsersImage list={data} />} */}
         </div>
     )
 }

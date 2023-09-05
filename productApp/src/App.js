@@ -29,15 +29,14 @@ const router = createBrowserRouter([
         element:<Categories/>
       },
       {
-
-      },
-      {
         path: "users",
         element:<Users/>
       }
     ]
 
+    
   },
+
 ]);
 
 function App() {
